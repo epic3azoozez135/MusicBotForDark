@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '$';
+const prefix = '-';
 
 client.on("message", message => {
 
@@ -31,7 +31,7 @@ client.on('message', function(message) {
 }
 });
 client.on("message", message => {
-    var prefix = "$"; // غير هنا حط البرفكس
+    var prefix = "-"; // غير هنا حط البرفكس
  
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "clear")) {
@@ -217,7 +217,7 @@ client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","- EIght , Member"));
     });
 const devs = ["462038057529507841"];
-const adminprefix = ["$"];
+const adminprefix = ["-"];
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
@@ -310,7 +310,7 @@ client.on("guildMemberAdd", member => {
 }).catch(console.error)
 })
 client.on('message', message => {
-            if (message.content.startsWith("$rules")) {
+            if (message.content.startsWith("-rules")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField(' القوانين')
@@ -949,7 +949,7 @@ client.on("message", message => {
   }
 });
 client.on("message", msg => {
-  if(msg.content === '$' + "id") {
+  if(msg.content === '-' + "id") {
       const embed = new Discord.RichEmbed();
   embed.addField("🔱| اسم الحساب :", `${msg.author.username}#${msg.author.discriminator}`, true)
           .addField("🆔| الاي دي :", `${msg.author.id}`, true)
@@ -966,7 +966,7 @@ client.on("message", msg => {
   }
 })
 client.on('message', function(msg) {
-    const prefix = '$'
+    const prefix = '-'
     if(msg.content.startsWith (prefix  + 'server')) {
       let embed = new Discord.RichEmbed()
       .setColor('RANDOM')
@@ -987,7 +987,7 @@ client.on('message', function(msg) {
 const sWlc = {}
  
 client.on('message', message => {
-var prefix = "$";
+var prefix = "-";
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
@@ -1003,7 +1003,7 @@ const channel = sWlc[message.guild.id].channel
   }
 });
 client.on('message', message => { 
-    var prefix = "$";
+    var prefix = "-";
     if (message.author.boss) return;
     if (!message.content.startsWith(prefix)) return;
     let command = message.content.split(" ")[0];
@@ -1040,7 +1040,7 @@ message.author.send(`**مدة الرابط : يـوم
 });
 
 client.on('message', message => {
-     if (message.content === "$help") {
+     if (message.content === "-help") {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     **$clear** ' ,' **مسح الشات** ')
@@ -1097,7 +1097,7 @@ client.on('message',async message => {
   
   
 client.on('message', message => {
-        var prefix = "$";
+        var prefix = "-";
         if(message.content.startsWith(prefix + 'deafen')) {
       if (message.mentions.users.size === 0 && message.mentions.roles.size === 0) {
         return message.reply('**يجب عليك المنشن اولاّ**❌').catch(console.error);
@@ -1126,7 +1126,7 @@ client.on('message', message => {
 	
 	
 	client.on('message', async message =>{
-      var prefix = "$";
+      var prefix = "-";
       if(message.content.startsWith(prefix + 'undeafen')) {
      
     if (message.mentions.users.size === 0 && message.mentions.roles.size === 0) {
@@ -1179,7 +1179,7 @@ client.on('message', message => {
 	
 	
 	client.on('message', message => {
-        var prefix = "$";
+        var prefix = "-";
         if(message.content.startsWith(prefix + 'mutevoice')) {
           if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**ليس لديك صلاحية لاعطاء ميوت صوتي**❌ ").then(m => m.delete(5000));
           if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
@@ -1198,7 +1198,7 @@ client.on('message', message => {
       }
     });
 client.on('message' , najzx => {
-    var prefix = "$";
+    var prefix = "-;
     let user = najzx.mentions.users.first()|| client.users.get(najzx.content.split(' ')[1])
     if(najzx.content.startsWith(prefix + 'unban')) {
         if(!najzx.member.hasPermission('ADMINISTRATOR')) return najzx.channel.send('❌|**\`ADMINISTRATOR\`لا توجد لديك رتبة`**');
@@ -1224,38 +1224,10 @@ client.on('message', message => {
 }
 });
 
-client.on('message', message => {
- 
-    if (message.content === "$mc") {
-                        if(!message.channel.guild) return message.reply(' This command only for servers');
- 
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
-           message.channel.overwritePermissions(message.guild.id, {
-         SEND_MESSAGES: false
- 
-           }).then(() => {
-               message.reply("تم تقفيل الشات ✅ ")
-           });
-             }
-if (message.content === "$umc") {
-    if(!message.channel.guild) return message.reply(' This command only for servers');
- 
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
-           message.channel.overwritePermissions(message.guild.id, {
-         SEND_MESSAGES: true
- 
-           }).then(() => {
-               message.reply("تم فتح الشات✅")
-           });
-             }
- 
- 
- 
-});
 
 client.on('message', async message => {
   if(message.author.bot) return;
-  let prefix = '$';
+  let prefix = '-';
 
   let command = message.content.split(" ")[0].slice(prefix.length);
   let args = message.content.split(" ").slice(1);
@@ -1275,7 +1247,7 @@ client.on('message', async message => {
 });
 
    client.on('message', msg => {
-  if(msg.content === '$hide') {
+  if(msg.content === '-hide') {
     msg.guild.channels.forEach(c => {
       c.overwritePermissions(msg.guild.id, {
         SEND_MESSAGES: false,
@@ -1287,7 +1259,7 @@ client.on('message', async message => {
 })   
 
 client.on('message', msg => {
-  if(msg.content === '$show') {
+  if(msg.content === '-show') {
     msg.guild.channels.forEach(c => {
       c.overwritePermissions(msg.guild.id, {
         SEND_MESSAGES: true,
@@ -1322,7 +1294,7 @@ client.on('guildMemberAdd', member => {
 })
 
 client.on("message", message => {
-    const prefix = "$"
+    const prefix = "-"
               
           if(!message.channel.guild) return;
    if(message.author.bot) return;
